@@ -1,0 +1,32 @@
+from collections import deque
+class os:
+    s=deque()
+    def pushes(self,x):
+        self.s.append(x)
+        for i in range(0,len(self.s)):
+            self.s.append(self.s[0])
+            self.s.popleft()
+            
+    def removes(self):
+        if(len(self.s)==0):
+            return ;
+        self.s.popleft()
+    def maxi(self):
+        if(len(self.s)==0):
+            return ;
+        return self.s[0]
+    def size(self):
+        return len(self.s)
+c=os()
+c.pushes(1)
+c.pushes(2)
+c.pushes(3)
+c.pushes(4)
+print(c.maxi())
+print(c.size())
+c.removes()
+c.removes()
+print(c.maxi())
+print(c.size())
+print(c.s)
+
